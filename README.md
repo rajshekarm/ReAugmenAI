@@ -1,5 +1,20 @@
 # ReAugmenAI
 
+## Repository layout
+
+The repository is organized as independently deployable services with shared,
+versioned contracts:
+
+- `services/` contains the application boundaries and their local tests.
+- `packages/contracts/` contains event and API schemas shared across services.
+- `packages/common/` contains cross-cutting logging, telemetry, and errors.
+- `infrastructure/` contains deployment and operations templates.
+- `tests/` contains cross-service integration, contract, end-to-end, and performance tests.
+- `evaluations/` contains quality datasets and evaluation runners.
+
+The existing `apps/api` package remains available as the initial upload API while
+the service boundaries are implemented incrementally.
+
 **Enterprise Knowledge Intelligence & Document Automation Platform**
 
 ReAugmenAI is an enterprise AI platform designed to transform documents and organizational knowledge into secure, searchable, traceable intelligence. It combines document ingestion, multimodal document understanding, knowledge indexing, hybrid retrieval, retrieval-augmented generation (RAG), and structured data extraction behind clearly defined service interfaces.

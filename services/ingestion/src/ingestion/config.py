@@ -1,6 +1,7 @@
 import os
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class Settings:
     database_url: str = os.getenv("DATABASE_URL", "postgresql+psycopg://reaugmen:local@localhost:5432/reaugmen")
@@ -11,5 +12,6 @@ class Settings:
     api_key: str = os.getenv("INGEST_API_KEY", "change-me-local-only")
     tenant_id: str = os.getenv("INGEST_TENANT_ID", "demo-tenant")
     max_upload_bytes: int = int(os.getenv("MAX_UPLOAD_BYTES", "26214400"))
+
 
 settings = Settings()

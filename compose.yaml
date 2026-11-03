@@ -23,7 +23,7 @@ services:
     ports:
       - '127.0.0.1:9001:9001'
 
-  api:
+  ingestion:
     build: .
     env_file: .env
     environment:

@@ -1,7 +1,9 @@
 import boto3
 from botocore.config import Config
 from botocore.exceptions import ClientError
-from apps.api.config import settings
+
+from ingestion.config import settings
+
 
 class Storage:
     def __init__(self):

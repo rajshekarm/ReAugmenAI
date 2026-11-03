@@ -1,5 +1,5 @@
-from apps.api.main import ALLOWED, serialize_document
-from apps.api.models import Document, DocumentVersion
+from ingestion.main import ALLOWED, serialize_document
+from ingestion.models import Document, DocumentVersion
 
 def test_supported_signatures():
     assert ALLOWED[".pdf"][1](b"%PDF-1.7")

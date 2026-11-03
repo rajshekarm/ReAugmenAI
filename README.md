@@ -12,8 +12,8 @@ versioned contracts:
 - `tests/` contains cross-service integration, contract, end-to-end, and performance tests.
 - `evaluations/` contains quality datasets and evaluation runners.
 
-The existing `apps/api` package remains available as the initial upload API while
-the service boundaries are implemented incrementally.
+The ingestion service is the first runnable service. Additional service boundaries
+are being implemented incrementally under `services/`.
 
 **Enterprise Knowledge Intelligence & Document Automation Platform**
 

@@ -1,11 +1,15 @@
 import uuid
 from datetime import datetime, timezone
+
 from sqlalchemy import DateTime, ForeignKey, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
-from apps.api.db import Base
+
+from ingestion.db import Base
+
 
 def utcnow():
     return datetime.now(timezone.utc)
+
 
 class Document(Base):
     __tablename__ = "documents"
@@ -13,6 +17,7 @@ class Document(Base):
     tenant_id: Mapped[str] = mapped_column(String(128), index=True)
     filename: Mapped[str] = mapped_column(String(255))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
 
 class DocumentVersion(Base):
     __tablename__ = "document_versions"
@@ -27,6 +32,7 @@ class DocumentVersion(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     __table_args__ = (UniqueConstraint("document_id", "version_number"),)
 
+
 class OutboxEvent(Base):
     __tablename__ = "outbox_events"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
@@ -35,6 +41,7 @@ class OutboxEvent(Base):
     payload_json: Mapped[str] = mapped_column(String(2048))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
 
 class AuditEvent(Base):
     __tablename__ = "audit_events"

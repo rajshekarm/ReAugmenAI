@@ -4,6 +4,6 @@ Parsing, OCR, layout, tables, figures, and page-level provenance.
 
 ## Current task
 
-Task 2 defines the versioned contracts for pages, elements, artifacts, provenance,
-processing errors, and processing lifecycle events. Parsing and OCR will consume
-these contracts in later tasks.
+Task 3 adds a deterministic plain-text parser. It converts UTF-8 bytes into
+page-level `DocumentPage` contracts and uses form-feed characters as page
+boundaries. PDF parsing, OCR, and layout analysis are separate later tasks.

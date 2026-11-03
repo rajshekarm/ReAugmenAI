@@ -23,4 +23,4 @@ include = ["services*", "packages*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "services"]
-pythonpath = [".", "services/ingestion/src"]
+pythonpath = [".", "services/ingestion/src", "services/document_intelligence/src"]
